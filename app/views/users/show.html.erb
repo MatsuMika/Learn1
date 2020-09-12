@@ -1,2 +1,34 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+<div class="row">
+	<div clas="col-xs-3">
+
+	</div>
+
+	<div clas="col-xs-9">
+		<h2>Books</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th></th>>
+					<th>Title</th>
+					<th>Opinion</th>
+				</tr>
+			</thead>
+		</table>
+		<tbody>
+			<% @books.each do |book| %>
+				<% if @user==book.user %>
+				<tr>
+					<td><%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", size: "50x50" %>
+					</td>
+					<td><% link_to book_path(book.id) do %>
+						<%=book.title %>
+						<% end %>
+					</td>
+				</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</div>
+</div>
+</div>
